@@ -1,126 +1,578 @@
-/* src/pages/Cart/Cart.css */
+/* src/pages/Cart/Cart.css - Estilo Xiaomi */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Resetar alguns estilos do Bootstrap para evitar conflitos - APENAS NA PÁGINA DO CART */
+.cart-page .btn:focus {
+  box-shadow: none !important;
+}
+
+.cart-page .btn:not(.quantity-controls .btn):not(.remove-btn):not(.coupon-btn) {
+  border-radius: 12px !important;
+}
+
+/* Garantir que as regras só se apliquem na página do carrinho */
 .cart-page {
-  min-height: 60vh;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 2rem 0;
 }
 
-.empty-cart {
-  padding: 3rem 0;
-}
-
-.cart-items-card {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+/* Isolamento das classes do cart para não afetar navbar */
+.cart-page .cart-page .cart-badge {
+  background: linear-gradient(135deg, #ff6900 0%, #ff8533 100%);
   border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+/* Header do carrinho */
+.cart-header {
+  margin-bottom: 2rem;
+}
+
+.cart-title {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #111;
+  letter-spacing: -0.02em;
+  margin-bottom: 0;
+}
+
+.cart-subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+
+.cart-badge {
+  background: linear-gradient(135deg, #ff6900 0%, #ff8533 100%);
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-left: 1rem;
+}
+
+/* Cards estilo Xiaomi */
+.xiaomi-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.xiaomi-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+}
+
+/* Empty cart */
+.empty-cart {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.empty-cart-icon {
+  color: #d1d5db;
+  margin-bottom: 2rem;
+  opacity: 0.7;
+}
+
+.empty-cart h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #374151;
+  margin-bottom: 1rem;
+}
+
+.empty-cart p {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.empty-cart .btn {
+  background: linear-gradient(135deg, #ff6900 0%, #ff8533 100%);
+  border: none;
+  border-radius: 12px;
+  padding: 14px 32px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.empty-cart .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 105, 0, 0.3);
+}
+
+/* Tabela do carrinho - Desktop */
+.cart-items-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.cart-items-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .cart-table {
   margin: 0;
+  border: none;
+  background: #ffffff;
 }
 
 .cart-table th {
-  border-top: none;
+  border: none;
+  background: #f8f9fa;
   font-weight: 600;
-  color: var(--text-dark);
-  padding: 1rem;
+  color: #374151;
+  padding: 1.5rem 1.5rem 1rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #e5e7eb;
 }
 
 .cart-table td {
+  border: none;
   vertical-align: middle;
-  padding: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid #f1f3f4;
+  background: #ffffff;
 }
 
-.product-info {
-  display: flex;
-  align-items: center;
+.cart-table tbody tr:last-child td {
+  border-bottom: none;
 }
 
+.cart-table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.cart-table tbody tr:hover {
+  background-color: #fafbfc;
+}
+
+/* Produto na tabela */
 .product-thumb {
   width: 80px;
   height: 80px;
   object-fit: contain;
-  margin-right: 1rem;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.mobile-product-thumb {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  border: 1px solid #eee;
-  border-radius: 8px;
-  padding: 0.5rem;
+.product-details h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+  line-height: 1.3;
 }
 
+.product-details small {
+  color: #6b7280;
+  font-size: 0.85rem;
+}
+
+/* Preços */
+.price-info {
+  text-align: right;
+}
+
+.price-info .text-muted {
+  font-size: 0.85rem;
+  margin-bottom: 2px;
+}
+
+.price-info strong {
+  font-size: 1.1rem;
+  color: #111;
+  font-weight: 600;
+}
+
+/* Controles de quantidade */
 .quantity-controls {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  background: #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  width: fit-content;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.quantity-controls .btn,
+.quantity-controls .btn-quantity {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.quantity-controls .btn:hover,
+.quantity-controls .btn-quantity:hover {
+  background: #ff6900 !important;
+  color: white !important;
+  transform: scale(1.05);
+  border-color: #ff6900 !important;
+  box-shadow: 0 2px 8px rgba(255, 105, 0, 0.3) !important;
+}
+
+.quantity-controls .btn:focus,
+.quantity-controls .btn-quantity:focus {
+  box-shadow: 0 0 0 2px rgba(255, 105, 0, 0.2) !important;
 }
 
 .quantity-display {
   min-width: 40px;
   text-align: center;
   font-weight: 600;
+  color: #111;
+  font-size: 1rem;
 }
 
-.quantity-controls .btn {
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
+/* Botão remover */
+.remove-btn {
+  background: none !important;
+  border: none !important;
+  color: #dc2626 !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  width: auto !important;
+  height: auto !important;
 }
 
+.remove-btn:hover {
+  background: rgba(220, 38, 38, 0.1) !important;
+  transform: scale(1.1) !important;
+  color: #dc2626 !important;
+}
+
+/* Cards Mobile */
+.mobile-cart-items {
+  display: none;
+}
+
+.mobile-cart-item {
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.mobile-cart-item:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Informações do produto */
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.mobile-product-thumb {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 8px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mobile-product-details h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.mobile-product-details small {
+  color: #6b7280;
+}
+
+.mobile-product-price {
+  margin-top: 0.75rem;
+}
+
+.mobile-product-price strong {
+  font-size: 1.1rem;
+  color: #111;
+  font-weight: 600;
+}
+
+/* Summary Card */
 .summary-card {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border: none;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
   position: sticky;
-  top: 100px;
+  top: 20px;
+  transition: all 0.3s ease;
+}
+
+.summary-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.summary-card .card-body {
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.summary-title {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #f1f3f4;
 }
 
 .summary-line {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.75rem;
-  font-size: 0.95rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #374151;
+  padding: 0.5rem 0;
 }
 
 .summary-line.total {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  color: var(--primary-color);
+  color: #111;
+  padding: 1.5rem 0 1rem;
+  margin: 1.5rem 0 1rem;
+  border-top: 2px solid #f1f3f4;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  border-radius: 12px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-.mobile-cart-items {
-  display: none;
+.summary-line.total .total-price {
+  color: #ff6900;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Botões */
+.xiaomi-btn {
+  border: none !important;
+  border-radius: 12px !important;
+  padding: 14px 24px !important;
+  font-weight: 500 !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  width: auto !important;
+}
+
+.xiaomi-btn-primary {
+  background: linear-gradient(135deg, #ff6900 0%, #ff8533 100%) !important;
+  color: white !important;
+  box-shadow: 0 4px 16px rgba(255, 105, 0, 0.3) !important;
+  border: none !important;
+}
+
+.xiaomi-btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(255, 105, 0, 0.4) !important;
+  color: white !important;
+  background: linear-gradient(135deg, #e55a00 0%, #ff7420 100%) !important;
+}
+
+.xiaomi-btn-outline {
+  background: white !important;
+  color: #ff6900 !important;
+  border: 2px solid #ff6900 !important;
+}
+
+.xiaomi-btn-outline:hover {
+  background: #ff6900 !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+  border-color: #ff6900 !important;
+}
+
+/* Cupom section */
+.coupon-section {
+  margin-bottom: 1.5rem;
+}
+
+.coupon-label {
+  font-weight: 500 !important;
+  color: #374151 !important;
+  margin-bottom: 0.75rem !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+}
+
+.coupon-input-group {
+  display: flex !important;
+  gap: 0.5rem !important;
+}
+
+.coupon-input {
+  flex: 1 !important;
+  border: 1.5px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-size: 0.95rem !important;
+  transition: all 0.2s ease !important;
+}
+
+.coupon-input:focus {
+  border-color: #ff6900 !important;
+  box-shadow: 0 0 0 3px rgba(255, 105, 0, 0.1) !important;
+  outline: none !important;
+}
+
+.coupon-btn {
+  background: #f8f9fa !important;
+  border: 1.5px solid #e5e7eb !important;
+  color: #374151 !important;
+  border-radius: 12px !important;
+  padding: 12px 20px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+.coupon-btn:hover {
+  background: #ff6900 !important;
+  border-color: #ff6900 !important;
+  color: white !important;
+}
+
+/* Responsive */
+@media (min-width: 992px) {
+  /* Garantir que o layout desktop funcione corretamente */
+  .mobile-cart-items {
+    display: none !important;
+  }
+  
+  .cart-table {
+    display: table !important;
+  }
+  
+  .summary-card {
+    position: sticky !important;
+    top: 20px !important;
+  }
 }
 
 @media (max-width: 991px) {
   .cart-table {
-    display: none;
+    display: none !important;
   }
   
   .mobile-cart-items {
-    display: block;
+    display: block !important;
   }
   
   .summary-card {
-    position: static;
-    margin-top: 2rem;
+    position: static !important;
+    margin-top: 2rem !important;
+  }
+  
+  .cart-title {
+    font-size: 1.5rem;
   }
 }
 
-/* Animações */
-.cart-items-card {
-  transition: all 0.3s ease;
+@media (max-width: 768px) {
+  .cart-page {
+    padding: 1rem 0;
+  }
+  
+  .cart-page .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .xiaomi-card {
+    border-radius: 12px;
+  }
+  
+  .mobile-product-thumb {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .quantity-controls {
+    gap: 0.5rem;
+    padding: 6px 10px;
+  }
+  
+  .quantity-controls .btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
 }
 
-.cart-table tr {
-  transition: background-color 0.2s ease;
-}
-
-.cart-table tr:hover {
-  background-color: #f8f9fa;
-}
-
-.btn {
-  transition: all 0.3s ease;
+@media (max-width: 576px) {
+  .cart-title {
+    font-size: 1.3rem;
+  }
+  
+  .summary-line {
+    font-size: 0.9rem;
+  }
+  
+  .summary-line.total {
+    font-size: 1.2rem;
+  }
+  
+  .xiaomi-btn {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+  
+  .mobile-cart-item .card-body {
+    padding: 1rem;
+  }
 }

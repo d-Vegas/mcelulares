@@ -1,0 +1,277 @@
+/* src/pages/Checkout/Checkout.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+.checkout-page {
+  min-height: 100vh;
+  background-color: #fafafa;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Header */
+.checkout-title {
+  font-size: 2rem;
+  font-weight: 300;
+  color: #111;
+  letter-spacing: -0.02em;
+}
+
+/* Cards estilo Xiaomi */
+.xiaomi-card {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.xiaomi-card:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos das seções */
+.section-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Labels dos inputs */
+.xiaomi-label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+/* Inputs estilo Xiaomi */
+.xiaomi-input {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  padding: 12px 16px;
+  background: #fff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.xiaomi-input:focus {
+  border-color: #ff6900;
+  box-shadow: 0 0 0 3px rgba(255, 105, 0, 0.1);
+  background: #fff;
+}
+
+.xiaomi-input.is-invalid {
+  border-color: #dc3545;
+}
+
+.xiaomi-input.is-invalid:focus {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.xiaomi-input::placeholder {
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+/* Feedback de erro */
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  font-weight: 400;
+}
+
+/* Summary sidebar */
+.sticky-summary {
+  position: sticky;
+  top: 20px;
+}
+
+/* Product summary items */
+.product-summary-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.product-summary-item:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.product-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 1px solid #f1f3f4;
+  border-radius: 12px;
+  padding: 8px;
+  margin-right: 1rem;
+  background: #fafafa;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.product-name {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.quantity-text {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.item-price {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Total section */
+.total-section {
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  border-top: 2px solid #f1f3f4;
+}
+
+.total-label {
+  font-weight: 600;
+  color: #333;
+}
+
+.total-price {
+  font-weight: 700;
+  color: #ff6900;
+  font-size: 1.4rem;
+}
+
+/* Benefits section */
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.benefit-item:last-child {
+  margin-bottom: 0;
+}
+
+.benefit-icon {
+  margin-right: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.benefit-item span {
+  font-size: 0.9rem;
+  color: #555;
+  font-weight: 400;
+}
+
+/* WhatsApp Button */
+.whatsapp-btn {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  border: none;
+  border-radius: 16px;
+  padding: 16px 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  letter-spacing: 0.01em;
+}
+
+.whatsapp-btn:hover:not(:disabled) {
+  background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-btn:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Success animation */
+.success-animation {
+  animation: successPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes successPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .sticky-summary {
+    position: static;
+    margin-top: 2rem;
+  }
+  
+  .checkout-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .checkout-page .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .xiaomi-card {
+    border-radius: 12px;
+  }
+  
+  .xiaomi-input {
+    font-size: 16px; /* Previne zoom no iOS */
+  }
+  
+  .product-thumb {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .product-name {
+    font-size: 0.85rem;
+  }
+  
+  .whatsapp-btn {
+    font-size: 1rem;
+    padding: 14px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .checkout-title {
+    font-size: 1.3rem;
+  }
+  
+  .section-title {
+    font-size: 1.1rem;
+  }
+  
+  .total-price {
+    font-size: 1.2rem;
+  }
+}

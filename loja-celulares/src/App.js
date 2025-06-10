@@ -11,6 +11,7 @@ import Products from './pages/Products/Products';
 import About from './pages/About/About';
 import Footer from './components/Footer/Footer';
 import Cart from './pages/Cart/Cart';
+import Checkout from './pages/Checkout/Checkout';
 
 function AppContent() {
   const { getItemsCount } = useCart();
@@ -25,6 +26,7 @@ function AppContent() {
           <Route path="/produtos" element={<Products />} />
           <Route path="/sobre" element={<About />} />
           <Route path="/carrinho" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </main>
       
